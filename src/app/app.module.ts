@@ -8,6 +8,7 @@ import { CalendarComponent } from './pages/calendar.component';
 import { DayComponent } from './components/day.component';
 import { FooterComponent } from './components/footer.component';
 import { AddReminderComponent } from './components/add-reminder.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddReminderComponent } from './components/add-reminder.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
