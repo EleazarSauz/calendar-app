@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthComponent implements OnInit {
   listDays: any = [29,30,...Array(31).keys(), 0,1];
-  month: string = 'Dicember'
+  month: string = 'December'
 
   constructor() { }
 
