@@ -1,0 +1,53 @@
+<h4 class="mb-3">Reminder</h4>
+
+<form class="needs-validation" novalidate="">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="text" class="form-label">Text</label>
+            <textarea type="text" id="address" placeholder="max 30 chars" required="" class="form-control"></textarea>
+        </div>
+
+        <div class="col-1">
+            <label for="hr" class="form-label">Hr</label>
+            <select class="form-select" id="country" required="">
+                <option value="">Choose...</option>
+                <option>00</option>
+            </select>
+        </div>
+
+        <div class="col-1">:</div>
+
+        <div class="col-1">
+            <label for="min" class="form-label">Min</label>
+            <select class="form-select" id="state" required="">
+                <option value="">Choose...</option>
+                <option>00</option>
+            </select>
+        </div>
+
+    </div>
+
+    <h5 class="mt-3">Color</h5>
+
+    <div class="mb-3">
+        <div class="form-check">
+            <input id="red" name="color" type="radio" class="form-check-input" checked="" required="">
+            <label class="form-check-label" for="credit">Red</label>
+        </div>
+        <div class="form-check">
+            <input id="blue" name="color" type="radio" class="form-check-input" required="">
+            <label class="form-check-label" for="debit">Blue</label>
+        </div>
+        <div class="form-check">
+            <input id="green" name="color" type="radio" class="form-check-input" required="">
+            <label class="form-check-label" for="paypal">Green</label>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="btn-group btn-group-lg w-100 px-2" role="group" aria-label="Basic example">
+        <button type="button" [routerLink]="['/day']" class="btn btn-secondary">Back</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>

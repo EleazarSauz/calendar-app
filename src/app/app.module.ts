@@ -7,6 +7,7 @@ import { MonthComponent } from './components/month.component';
 import { CalendarComponent } from './pages/calendar.component';
 import { DayComponent } from './components/day.component';
 import { FooterComponent } from './components/footer.component';
+import { AddReminderComponent } from './components/add-reminder.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FooterComponent } from './components/footer.component';
     CalendarComponent,
     DayComponent,
     FooterComponent,
+    AddReminderComponent,
   ],
   imports: [
     BrowserModule,
