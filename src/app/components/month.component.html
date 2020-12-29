@@ -1,7 +1,20 @@
-<h4 class="mb-3">Month</h4>
+<h4 class="mb-3 text-center">{{month}}</h4>
 
-<svg class="bd-placeholder-img card-img-top" width="100%" height="325" xmlns="http://www.w3.org/2000/svg" role="img"
-    aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-    <title>Placeholder</title>
-    <rect width="100%" height="100%" fill="#55595c"></rect>
-</svg>
+<ol>
+    <li class="py-2 bg-primary text-white text-center">Sun</li>
+    <li class="py-2 bg-primary text-white text-center">Mon</li>
+    <li class="py-2 bg-primary text-white text-center">Tue</li>
+    <li class="py-2 bg-primary text-white text-center">Wen</li>
+    <li class="py-2 bg-primary text-white text-center">Thu</li>
+    <li class="py-2 bg-primary text-white text-center">Fri</li>
+    <li class="py-2 bg-primary text-white text-center">Sat</li>
+
+    <li 
+        *ngFor="let item of listDays; index as i;"
+        class="pt-2 ps-4 text pb-5 border-bottom border-end border-dark" 
+        [ngClass]="{'bg-secondary text-white': i % 7 === 0 ||(i + 1) % 7 === 0, 'border-end-0': (i+1) % 7 === 0 }"
+        (click)="onClickDay(item)"
+    > 
+        {{ item + 1 }}
+    </li>
+</ol>
