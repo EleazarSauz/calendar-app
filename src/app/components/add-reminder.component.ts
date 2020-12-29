@@ -4,8 +4,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-add-reminder',
   templateUrl: './add-reminder.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class AddReminderComponent implements OnInit {
 
@@ -15,8 +14,8 @@ export class AddReminderComponent implements OnInit {
 
   
   onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+    console.log(f.value);
+    console.log(f.valid);
   }
 
   ngOnInit(): void {
