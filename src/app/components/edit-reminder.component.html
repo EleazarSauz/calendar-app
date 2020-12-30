@@ -39,6 +39,7 @@
 
     <div class="btn-group btn-group-lg w-100 px-2" role="group">
         <button type="button" [routerLink]="['/day']" class="btn btn-secondary">Back</button>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="button" (click)="clickOnDelete()" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
     </div>
 </form>

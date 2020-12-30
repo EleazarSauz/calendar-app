@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -10,7 +11,6 @@ import { Observable } from 'rxjs';
 export class DayComponent implements OnInit {
   reminders$: Observable<any>
   selectDay$: Observable<any>;
-  day: number;
   hours: number[] = [...Array(24).keys()];
   listDays: any = [29, 30, ...Array(31).keys(), 0, 1].map(i => i + 1);
   listReminders: any[] = [ 
@@ -52,18 +52,15 @@ export class DayComponent implements OnInit {
     // },
   ];
 
-  constructor(private store: Store<{ reminders: any[], selectDay: number }>) {
+  constructor(
+    private store: Store<{ reminders: any[], selectDay: number }>,
+    public router: Router,
+    ) {
     this.reminders$ = store.select('reminders');
     this.selectDay$ = store.select('selectDay');
-    this.selectDay$.pipe().subscribe(
-      s => {
-        this.day = s;
-        console.log('s', s)
-      }
-    ) 
   }
-  clickOnReminder(reminder) {
-    console.log('reminder', reminder)
+  clickOnReminder(reminderID: number) {
+    this.router.navigate(['/edit-reminder', reminderID]);
   }
 
   ngOnInit(): void {
