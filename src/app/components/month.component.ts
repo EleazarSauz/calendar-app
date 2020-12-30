@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { change } from '../redux/select-day.actions';
 
 @Component({
   selector: 'app-month',
@@ -6,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./month.component.css']
 })
 export class MonthComponent implements OnInit {
-  listDays: any = [29,30,...Array(31).keys(), 0,1];
+  selectDay$: Observable<any>
+  listDays: any = [29,30,...Array(31).keys(), 0,1].map(i => i+1);
   month: string = 'December'
+  
+  constructor(private store: Store<{ selectDay: number }>) {
+    this.selectDay$ = store.select('selectDay');
+  }
 
-  constructor() { }
 
   onClickDay(day: number) {
+    this.store.dispatch(change({day}))
     console.log('day', day + 1)
   }
 

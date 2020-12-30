@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-day',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class DayComponent implements OnInit {
+  reminders$: Observable<any>
+  selectDay$: Observable<any>;
+  day: number;
   hours: number[] = [...Array(24).keys()];
-
+  listDays: any = [29, 30, ...Array(31).keys(), 0, 1].map(i => i + 1);
   listReminders: any[] = [ 
     {
       text: 'this is my reminder',
@@ -47,7 +52,16 @@ export class DayComponent implements OnInit {
     // },
   ];
 
-  constructor() { }
+  constructor(private store: Store<{ reminders: any[], selectDay: number }>) {
+    this.reminders$ = store.select('reminders');
+    this.selectDay$ = store.select('selectDay');
+    this.selectDay$.pipe().subscribe(
+      s => {
+        this.day = s;
+        console.log('s', s)
+      }
+    ) 
+  }
   clickOnReminder(reminder) {
     console.log('reminder', reminder)
   }

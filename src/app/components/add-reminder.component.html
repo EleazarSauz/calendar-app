@@ -1,10 +1,10 @@
-<h4 class="mb-3">Reminder</h4>
+<h4 class="mb-3">Reminder <div>Current Count: {{ reminders$ | async }}</div> </h4>
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
     <div class="row g-3">
         <div class="col-12">
             <label for="text" class="form-label">Text</label>
-            <textarea type="text" id="address" ngModel placeholder="max 30 chars" required name="text" class="form-control"></textarea>
+            <input type="text" id="address" ngModel placeholder="max 30 chars" required name="text" class="form-control"/>
         </div>
 
         <div class="col-6">
@@ -21,9 +21,15 @@
         <div class="col-5">
             <label for="hour" class="form-label">Hour</label>
             <select class="form-select" id="hour" name="hour" ngModel required>
-                <option *ngFor="let hour of hours">{{ hour | number:'2.0-0' }}</option>
+                <option *ngFor="let hour of hours" value="{{hour}}">{{ hour | number:'2.0-0' }}</option>
             </select>
         </div>
+
+        <div class="col-12">
+            <label for="city" class="form-label">City</label>
+            <input type="text" id="address" ngModel placeholder="Your city" required name="city" class="form-control" />
+        </div>
+
     </div>
     
 
